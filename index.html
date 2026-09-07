@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBC-BANK Portal</title>
+    <style>
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        body { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; min-height: 100vh; color: #1f2937; }
+        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { margin-bottom: 1.5rem; text-align: center; color: #1e3a8a; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .info-box { background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem; font-size: 0.9rem; color: #1e40af; }
+        .input-group { margin-bottom: 1.25rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+        input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; }
+        button { width: 100%; padding: 0.75rem; background-color: #1e3a8a; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        button:hover { background-color: #1d4ed8; }
+        .error { color: #dc2626; font-size: 0.875rem; margin-top: 0.5rem; display: none; text-align: center; }
+        .hidden { display: none; }
+        .divider { height: 1px; background: #e5e7eb; margin: 1.5rem 0; }
+        .metric-label { font-size: 0.875rem; color: #6b7280; text-transform: uppercase; font-weight: 600; }
+        .metric-value { font-size: 2.25rem; font-weight: bold; color: #111827; margin-top: 0.25rem; }
+        .btn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.5rem; }
+        .btn-secondary { background-color: #e5e7eb; color: #9ca3af; cursor: not-allowed; font-size: 0.85rem; padding: 0.5rem; }
+        .btn-logout { background-color: #ef4444; }
+        .btn-logout:hover { background-color: #dc2626; }
+    </style>
+</head>
+<body>
+
+    <!-- SCREEN 1: LOGIN PAGE -->
+    <div id="login-screen" class="card">
+        <h2>🔒 TBC-BANK Login</h2>
+        <div class="info-box">
+            💡 Try logging in with:<br>
+            <strong>User ID:</strong> eveline<br>
+            <strong>Password:</strong> password123
+        </div>
+        <div class="input-group">
+            <label>Enter User ID</label>
+            <input type="text" id="username" placeholder="username">
+        </div>
+        <div class="input-group">
+            <label>Enter Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+        <button onclick="handleLogin()">Login</button>
+        <p id="error-msg" class="error">❌ Invalid credentials. Please try again.</p>
+    </div>
+
+    <!-- SCREEN 2: BANK DASHBOARD -->
+    <div id="dashboard-screen" class="card hidden" style="max-width: 500px;">
+        <h2>🏦 WELCOME TO TBC-BANK!</h2>
+        <div class="divider"></div>
+        <div class="input-group">
+            <p><strong>Account Holder:</strong> <span id="user-fullname">Eveline Gale/ B johnson</span></p>
+            <p><strong>Account Number:</strong> 0986-3216-9012</p>
+        </div>
+        <div class="divider"></div>
+        <div>
+            <p class="metric-label">Available Balance</p>
+            <p class="metric-value">$500,000,000.00</p>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-grid">
+            <button class="btn-secondary" disabled>Deposit</button>
+            <button class="btn-secondary" disabled>Transfer</button>
+            <button class="btn-logout" onclick="handleLogout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            if (user === "demouser" && pass === "password123") {
+                errorMsg.style.display = "none";
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('dashboard-screen').classList.add('hidden');
+                document.getElementById('dashboard-screen').classList.remove('hidden');
+            } else {
+                errorMsg.style.display = "block";
+            }
+        }
+
+        function handleLogout() {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('dashboard-screen').classList.add('hidden');
+            document.getElementById('login-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
