@@ -145,14 +145,14 @@
                 <ul class="tx-list">
                     <li class="tx-item">
                         <div class="tx-info">
-                            <span class="tx-desc">Online Transfer Entry</span>
+                            <span class="tx-desc">Tax due </span>
                             <span class="tx-date">Sept 07, 2026 at 4:12 PM</span>
                         </div>
-                        <span class="tx-amount tx-negative">-$45.00</span>
+                        <span class="tx-amount tx-negative">-$345.00</span>
                     </li>
                     <li class="tx-item">
                         <div class="tx-info">
-                            <span class="tx-desc">Initial Account Activation</span>
+                            <span class="tx-desc">Initial Account Deposit</span>
                             <span class="tx-date">Sept 05, 2026 at 09:00 AM</span>
                         </div>
                         <span class="tx-amount tx-neutral">$500,000,000.00</span>
@@ -162,7 +162,7 @@
                 <div class="btn-grid">
                     <button class="btn-action" onclick="triggerActionError('Deposit')">Deposit</button>
                     <button class="btn-transfer" onclick="triggerActionError('Transfer')">Transfer</button>
-                    <button class="btn-logout" onclick="handleLogout()">Exit Portal</button>
+                    <button class="btn-logout" onclick="handleLogout()">Log Out</button>
                 </div>
             </div>
 
@@ -193,7 +193,7 @@
         }
 
         function triggerActionError(actionType) {
-            alert(`Error: The ${actionType} service is currently unavailable Please contact support.`);
+            alert(`Error: The ${actionType} service is currently unavailable .. Account is dormant.`);
         }
     </script>
 </body>
