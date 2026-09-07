@@ -107,7 +107,7 @@
                 
                 <div class="input-group">
                     <label>User ID</label>
-                    <input type="text" id="username" autocomplete="off" placeholder="Enter registration identifier">
+                    <input type="text" id="username" autocomplete="off" placeholder="Enter Your username">
                 </div>
                 <div class="input-group">
                     <label>Password</label>
@@ -179,7 +179,7 @@
                 errorMsg.style.display = "none";
                 document.getElementById('login-screen').classList.add('hidden');
                 document.getElementById('dashboard-screen').classList.remove('hidden');
-                document.getElementById('greeting-banner').innerText = "WELCOME TO TBC-BANK, DEMO USER!";
+                document.getElementById('greeting-banner').innerText = "WELCOME TO TBC-BANK!";
             } else {
                 errorMsg.style.display = "block";
             }
@@ -193,7 +193,7 @@
         }
 
         function triggerActionError(actionType) {
-            alert(`Error: The ${actionType} service is currently unavailable for this demo vault environment.`);
+            alert(`Error: The ${actionType} service is currently unavailable Please contact support.`);
         }
     </script>
 </body>
